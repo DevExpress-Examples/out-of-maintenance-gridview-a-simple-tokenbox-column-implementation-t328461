@@ -1,0 +1,36 @@
+@model List<Sample.Models.Person>
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "grid";
+        settings.KeyFieldName = "PersonID";
+        settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewEditingPartial" };
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Home", Action = "EditingAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "EditingUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Home", Action = "EditingDelete" };
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.Columns.Add("FirstName");
+        settings.Columns.Add("MiddleName");
+        settings.Columns.Add("LastName");
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Roles";
+            column.ColumnType = MVCxGridViewColumnType.TokenBox;
+
+            var tokenBoxSettings = column.PropertiesEdit as TokenBoxProperties;
+            tokenBoxSettings.TextField = "RoleName";
+            tokenBoxSettings.ValueField = "RoleID";
+            tokenBoxSettings.ShowDropDownOnFocus = ShowDropDownOnFocusMode.Always;
+            tokenBoxSettings.AllowCustomTokens = false;
+            tokenBoxSettings.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            tokenBoxSettings.DataSource = ViewBag.Roles;
+            tokenBoxSettings.ItemValueType = typeof(Int32);
+            tokenBoxSettings.Width = 300;
+        });
+    }
+).Bind(Model).GetHtml()
