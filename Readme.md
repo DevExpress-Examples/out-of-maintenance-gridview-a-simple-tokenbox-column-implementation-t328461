@@ -9,6 +9,9 @@
 * [Index.cshtml](./CS/Sample/Views/Home/Index.cshtml)
 <!-- default file list end -->
 # GridView - A simple TokenBox Column implementation
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/t328461)**
+<!-- run online end -->
 
 
 <p>This example illustrates how to create a column whose ColumnType is <strong><em>MVCxGridViewColumnType.TokenBox</em></strong>. </p>
