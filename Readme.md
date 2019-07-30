@@ -10,7 +10,7 @@
 <!-- default file list end -->
 # GridView - A simple TokenBox Column implementation
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t328461)**
+**[[Run Online]](https://codecentral.devexpress.com/t328461/)**
 <!-- run online end -->
 
 
